@@ -1,8 +1,0 @@
-matplotlib>=3.7.2
-nibabel>=5.1.0
-numpy>=1.24.3
-opencv-python>=4.8.0.7.4
-pydicom>=2.4.1
-scikit-image>=0.21.0
-scikit-learn>=1.3.0
-scipy>=1.11.1
