@@ -29,10 +29,9 @@ from LF_simulation_functions import get_sigma_n
 # User input #
 ##############
 
-## Change these numbers according to the neuroanatomy
 nifti_input     = False         # make it true if you want to use NIFTI data
-dicom_input     = True         # make it true if you want to use DICOM data - for NHP
-IMA_dicom_input = False          # make it true if you want to use DICOM IMA data - for phantom
+dicom_input     = True          # make it true if you want to use DICOM data - for NHP
+IMA_dicom_input = False         # make it true if you want to use DICOM IMA data - for phantom
 
 contrast_component   = False    # make it true if you want to add contrast component
 resolution_component = True     # make it true if you want to add resolution component
@@ -58,12 +57,12 @@ acqu_path     = r"C:\Mount_Sinai\6_data_for_noise\acqu_axial\acqu1.par"
 noise_path    = r"C:\Mount_Sinai\6_data_for_noise\data_axial"
 
 
-slice_number = 10
+slice_number = 10   # to view and save one slice
 # Note:
 # image_path_HF - path to 5_phantom_data folder
 # image_path_LF - any data.3d file out of the 6_data_for_noise folder
-# acqu_path - corresponding acqu.par file out of the 6_data_for_noise folder
-# noise_path - path to the repeatability dataset for making noise matrix which will be used for noise simulation (6_data_for_noise)
+# acqu_path     - corresponding acqu.par file out of the 6_data_for_noise folder
+# noise_path    - path to the repeatability dataset for making noise matrix which will be used for noise simulation (6_data_for_noise)
 
 
 ############################

@@ -3,13 +3,9 @@
 #######################################################
 
 import numpy as np
-import pydicom as pyd
 import matplotlib
 import matplotlib.pyplot as plt
 import keaDataProcessing as keaProc
-from pyfeats import glcm_features
-from roipoly import RoiPoly
-import nibabel as nib
 from nibabel.viewers import OrthoSlicer3D
 from LF_simulation_functions import read_dicoms
 from LF_simulation_functions import read_dicoms_IMA
@@ -29,17 +25,16 @@ from LF_simulation_functions import get_sigma_n
 # User input #
 ##############
 
-## Change these numbers according to the neuroanatomy
-nifti_input     = False         # make it true if you want to use NIFTI data
-dicom_input     = False         # make it true if you want to use DICOM data - for NHP
-IMA_dicom_input = True          # make it true if you want to use DICOM IMA data - for phantom
+nifti_input     = False         # If your input phantom/NHP image is in NIFTI format, make it True.
+dicom_input     = False         # If your input phantom/NHP image is in DICOM format, make it True.
+IMA_dicom_input = True          # If your input phantom/NHP image is in IMA DICOM format, make it True.
 
-contrast_component   = False    # make it true if you want to add contrast component
-resolution_component = True     # make it true if you want to add resolution component
-snr_component        = True     # make it true if you want to add SNR component
+contrast_component   = False    # Make it True if you want to change the contrast of the image
+resolution_component = True     # Make it True if you want to change the resolution of the image
+snr_component        = True     # Make it True if you want to change the SNR of the image
 
-viewing = True                  # make it true to see output
-# Sequence of output - (1)HF, (2)HF resized, (3)LF simulated, (4)LF acquired
+viewing = True                  # Make it True to see output
+# Sequence of output - (1)HF, (2)HF resized, (3)LF simulated, (4)LF acquired, (5) LF acquired B0 corrected
 
 # New Resolution - change these to get desired resolution
 new_res_x = 1.48
@@ -50,17 +45,18 @@ new_res_z = 5.0
 thresh = 0.2
 
 ## All paths
-image_path_HF   = r"C:\Mount_Sinai\5_phantom_data\High_Field\T2_FLAIR_0010_for_LF_sim"
-image_path_LF   = r"C:\Mount_Sinai\6_data_for_noise\data_axial\data1.3d"
-acqu_path       = r"C:\Mount_Sinai\6_data_for_noise\acqu_axial\acqu1.par"
-noise_path      = r"C:\Mount_Sinai\6_data_for_noise\data_axial"
-B0_corr_path    = r"C:\Mount_Sinai\5_phantom_data\Low_Field\B0_corrected\7_TSE_after_correction_filt.npy"
+image_path_HF   = r"D:\Kunal\Mount_Sinai\5_phantom_data\High_Field\T2_FLAIR_0010_for_LF_sim"
+image_path_LF   = r"D:\Kunal\Mount_Sinai\6_data_for_noise\data\data1.3d"
+acqu_path       = r"D:\Kunal\Mount_Sinai\6_data_for_noise\acqu\acqu1.par"
+noise_path      = r"D:\Kunal\Mount_Sinai\6_data_for_noise\data"
+B0_corr_path    = r"D:\Kunal\Mount_Sinai\5_phantom_data\Low_Field\B0_corrected\7_TSE_after_correction_filt.npy"
 
 # Note:
-# image_path_HF - path to 5_phantom_data folder
-# image_path_LF - any data.3d file out of the 6_data_for_noise folder
-# acqu_path - corresponding acqu.par file out of the 6_data_for_noise folder
-# noise_path - path to the repeatability dataset for making noise matrix which will be used for noise simulation (6_data_for_noise)
+# image_path_HF - Path to phantom_data folder containing the 3T/1.5T images to be simulated
+# image_path_LF - Path to "data1.3d" file in the data_for_noise/data folder
+# acqu_path     - Path to "acqu1.par" file in the data_for_noise/acqu folder
+# noise_path    - Path to the data_for_noise folder
+# B0_corr_path  - Path to B0 corrected file for the corresponding low-field phantom image
 
 
 ############################
