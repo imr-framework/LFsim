@@ -10,6 +10,8 @@ Low-field MRI simulator
 
 2. Aggarwal, K., Cong, Y., Lee, J.H., Mani, V., Calcagno, C., Holbrook, M.R. and Geethanath, S., Feasibility of Nipah virus-induced lesion detection using 0.05 T MRI. [ISMRM Conference Proceeding](https://archive.ismrm.org/2024/4228_bOJ9LtQws.html)
 
-## External references:
-1. Shocher, A., Cohen, N. and Irani, M., 2018. “zero-shot” super-resolution using deep internal learning. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 3118-3126). [ZSSR article](https://arxiv.org/abs/1712.06087)
+## Suggested reading and tutorials:
+1. Shocher, A., Cohen, N. and Irani, M., 2018. “zero-shot” super-resolution using deep internal learning. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 3118-3126). [Article](https://arxiv.org/abs/1712.06087)
+
+2. Virtual Scanner Games [Heroku](https://vs-tabletop-713f97371131.herokuapp.com/)
    
