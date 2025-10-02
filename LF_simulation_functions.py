@@ -151,8 +151,8 @@ def compile_noise(dirname, dirname_2):
     # iterating over all files
     for files in os.listdir(dirname):
         if files.endswith(ext):
-            os.chdir(dirname)
-            kSpace = keaProc.readKSpace(files)
+            # os.chdir(dirname)
+            kSpace = keaProc.readKSpace(os.path.join(dirname, files))
             LF_acq = np.fft.fftshift(np.fft.fftn(np.fft.fftshift(kSpace)))
 
             I = np.abs(LF_acq)

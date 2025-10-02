@@ -127,3 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Add data folders
+data_sim_check/
+6_data_for_noise/
+output_sim_check/
