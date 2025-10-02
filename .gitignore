@@ -132,3 +132,6 @@ dmypy.json
 data_sim_check/
 6_data_for_noise/
 output_sim_check/
+
+# add .DS_Store files
+.DS_Store
